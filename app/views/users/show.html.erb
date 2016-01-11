@@ -1,24 +1,41 @@
-<h1>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
-</h1>
-<div class="panel panel-default" id="profile-info">
-    <div class="panel-heading">
-    ユーザー情報
-    </div>
-    <div class="panel-body">
-        <div class="row">
-        　<div class="col-md-2" >メールアドレス：</div>
-        　<div class="col-md-8" ><%= @user.email %></div>
-        </div>
-        <div class="row">
-        　<div class="col-md-2" >年齢：</div>
-        　<div class="col-md-8" ><%= @user.age %></div>
-        </div>
-        <div class="row">
-        　<div class="col-md-2" >地域：</div>
-        　<div class="col-md-8" ><%= @user.area %></div>
-        </div>
+<div class="row">
+    <aside class="col-md-4">
+        <section class="user_info">
+            <h1>
+                <%= gravatar_for @user %>
+                <%= @user.name %>
+            </h1>
+<!--
+            <div class="panel panel-default" id="profile-info">
+                <div class="panel-heading">
+                ユーザー情報
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                    　<div class="col-md-1" >メールアドレス：</div>
+                    　<div class="col-md-3" ><%= @user.email %></div>
+                    </div>
+                    <div class="row">
+                    　<div class="col-md-1" >年齢：</div>
+                    　<div class="col-md-3" ><%= @user.age %></div>
+                    </div>
+                    <div class="row">
+                    　<div class="col-md-1" >地域：</div>
+                    　<div class="col-md-3" ><%= @user.area %></div>
+                    </div>
+                </div>
+            </div>
+-->
+        </section>
+    </aside>
+    <div class="col-md-8">
+        <% if@user.microposts.any? %>
+        <h3>Microposts (<%= @user.microposts.count %>)</h3>
+        <ol class="microposts">
+            <%= render @microposts %>
+        </ol>
+        <% end %>
     </div>
 </div>
+
 
