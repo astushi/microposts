@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-   before_action :set_user, only: [:edit, :update, :show]
+   before_action :validates_user, only: [:edit, :update]
  
   def show
-    
+    @user = User.find(params[:id])
   end
     
   def new
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      redirect_to current_user, notice: 'メッセージを保存しました'
+      redirect_to current_user, notice: 'ユーザ情報を更新しました'
     else
       render 'edit'
     end
@@ -36,8 +36,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :area)
   end
   
-  def set_user
   
+  def validates_user
     if current_user == User.find(params[:id])
       @user = User.find(params[:id])
     else
