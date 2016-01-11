@@ -109,13 +109,13 @@ input {
 /* sidebar */
 
 aside {
-  section.user_info {
+  section.user_info{
     margin-top: 20px;
   }
   section {
     padding: 10px 0;
     margin-top: 20px;
-    &:first-child {
+    &:first-child{
       border: 0;
       padding-top: 0;
     }
@@ -127,7 +127,7 @@ aside {
     h1 {
       font-size: 1.4em;
       text-align: left;
-      letter-spacing: -1px;
+      letter-spacing: 3px;
       margin-bottom: 3px;
       margin-top: 0px;
     }
@@ -141,4 +141,8 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
+}
+
+#profile-info {
+  margin-top: 50px;
 }

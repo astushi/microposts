@@ -2,3 +2,23 @@
     <%= gravatar_for @user %>
     <%= @user.name %>
 </h1>
+<div class="panel panel-default" id="profile-info">
+    <div class="panel-heading">
+    ユーザー情報
+    </div>
+    <div class="panel-body">
+        <div class="row">
+        　<div class="col-md-2" >メールアドレス：</div>
+        　<div class="col-md-8" ><%= @user.email %></div>
+        </div>
+        <div class="row">
+        　<div class="col-md-2" >年齢：</div>
+        　<div class="col-md-8" ><%= @user.age %></div>
+        </div>
+        <div class="row">
+        　<div class="col-md-2" >地域：</div>
+        　<div class="col-md-8" ><%= @user.area %></div>
+        </div>
+    </div>
+</div>
+
