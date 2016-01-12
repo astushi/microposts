@@ -1,0 +1,9 @@
+<h1>フォロー</h1>
+<h2><%= @followings.count %>人</h2>
+<% if @followings.any? %>
+    <% @followings.each do |following| %>
+        <div style="height:60px">
+            <%= link_to gravatar_for(following, size: 50), following %><%= following.name %>
+        </div>
+    <% end %>
+<% end %>

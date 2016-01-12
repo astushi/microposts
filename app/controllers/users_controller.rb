@@ -31,6 +31,14 @@ class UsersController < ApplicationController
     end
   end
   
+  def followings
+    @followings =  current_user.following_users
+  end
+  
+  def followers
+    @followers = current_user.follower_users
+  end
+  
   private 
   
   def user_params
