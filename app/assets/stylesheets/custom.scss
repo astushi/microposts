@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 /* universal */
 
 body {
@@ -195,3 +196,7 @@ span.picture {
 }
 
 /* following follower*/
+
+.following_follower {
+  height: 60px;
+}
