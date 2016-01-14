@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
+    @page = @user.microposts.page(params[:page])
   end
     
   def new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
   def create 
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "ようこそ、SAMPLE APPへ"
       redirect_to @user
     else
       render 'new'
