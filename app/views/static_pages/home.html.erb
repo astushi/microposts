@@ -5,8 +5,7 @@
         <%= render 'shared/user_info' %>
       </section>
       <section>
-        <%= link_to 'フォロー', followings_path %> | 
-          <%= link_to 'フォロワー', followers_path %> 
+        <%= render 'shared/following_follower' %>
       </section> 
       <section class="micropost_form">
         <%= render 'shared/micropost_form' %>

@@ -3,7 +3,6 @@ class UsersController < ApplicationController
  
   def show
     @user = User.find(params[:id])
-    @followings = @user.following_users
     @microposts = @user.microposts.order(created_at: :desc)
   end
     
@@ -33,21 +32,13 @@ class UsersController < ApplicationController
   end
   
   def followings
-    @user = User.find_by(id: params[:u_id])
-    if logged_in?
-      @followings = current_user.following_users
-    else
+      @user = User.find(params[:id])
       @followings = @user.following_users
-    end
   end
   
   def followers
-    @user = User.find_by(id: params[:u_id])
-    if logged_in?
-      @followers = current_user.follower_users
-    else
+      @user = User.find(params[:id])     
       @followers = @user.follower_users
-    end
   end
   
   private 
