@@ -5,6 +5,11 @@
                 <%= gravatar_for @user %>
                 <%= @user.name %>
             </h1>
+        </section>
+      <section>
+         <%= link_to "Followings", followings_user_path(@user) %> | 
+          <%= link_to 'Followers', followers_user_path(@user) %> 
+      </section>     
 <!--
             <div class="panel panel-default" id="profile-info">
                 <div class="panel-heading">
@@ -26,7 +31,7 @@
                 </div>
             </div>
 -->
-        </section>
+
     </aside>
     <div class="col-md-8">
         <%= render 'follow_form' if logged_in? %>
@@ -40,5 +45,3 @@
         <% end %>
     </div>
 </div>
-
-
