@@ -6,10 +6,7 @@
                 <%= @user.name %>
             </h1>
         </section>
-          <section class="following_followed"> 
-              <span><%= link_to "フォロー", followings_path %> | <%= link_to "フォロワー", followers_path %></span>
-          </section>
-        
+        <%= render 'shared/following_followed' %>
 <!--
             <div class="panel panel-default" id="profile-info">
                 <div class="panel-heading">

@@ -4,9 +4,10 @@
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
-      <section class="following_followed"> 
-          <span><%= link_to "フォロー", followings_path %> | <%= link_to "フォロワー", followers_path %></span>
-      </section>
+      <section>
+        <%= link_to 'フォロー', followings_path %> | 
+          <%= link_to 'フォロワー', followers_path %> 
+      </section> 
       <section class="micropost_form">
         <%= render 'shared/micropost_form' %>
       </section>
