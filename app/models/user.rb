@@ -39,5 +39,26 @@ class User < ActiveRecord::Base
     def feed_items
         Micropost.where(user_id: following_user_ids + [self.id])
     end
-    
+
+     has_many :liking_likes, class_name:  "Like",
+                                         foreign_key: "liker_id",
+                                         dependent:   :destroy
+     has_many :liking_microposts, through: :liking_likes, source: :liked
+
+#いいねをつける
+    def like(other_micropost)
+        liking_likes.find_or_create_by(liked_id: other_micropost.id)
+    end
+
+#いいねをはずす
+    def unlike(other_micropost)
+        liking_like = liking_likes.find_by(liked_id: other_micropost.id)
+        liking_like.destroy if liking_like
+    end
+
+ #いいねしているかどうか？
+    def like?(other_micropost)
+        liking_likes.include?(other_micropost)    
+    end
+
 end
