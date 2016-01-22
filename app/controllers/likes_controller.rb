@@ -1,13 +1,17 @@
 class LikesController < ApplicationController
-    before_action :logged_in_user
     
-    def create
-        @micropost = Micropost.find(params[:liked_id])
-        current_user.like(@micropost)
+    def like
+        micropost = Micropost.find(params[:micropost_id])
+        like = current_user.likes.build(micropost_id: micropost.id)
+        like.save
+        #redirect_to root_path
     end
     
-    def destroy
-        @micropost = current_user.liking_likes.find(params[:id]).liked
-        current_user.unlike(@micropost)
+    def unlike
+        micropost = Micropost.find(params[:micropost_id])
+        like = current_user.likes.find_by(micropost_id: micropost.id)
+        like.destroy
+        #redirect_to root_path
     end
+    
 end

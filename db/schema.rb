@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116142641) do
+ActiveRecord::Schema.define(version: 20160122025552) do
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "liker_id"
-    t.integer  "liked_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "micropost_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "likes", ["liked_id"], name: "index_likes_on_liked_id"
-  add_index "likes", ["liker_id", "liked_id"], name: "index_likes_on_liker_id_and_liked_id", unique: true
-  add_index "likes", ["liker_id"], name: "index_likes_on_liker_id"
+  add_index "likes", ["micropost_id"], name: "index_likes_on_micropost_id"
+  add_index "likes", ["user_id", "micropost_id"], name: "index_likes_on_user_id_and_micropost_id", unique: true
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "microposts", force: :cascade do |t|
     t.integer  "user_id"
