@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   get    'signup', to: 'users#new'
   get    'login' , to: 'sessions#new'
   post   'login' , to: 'sessions#create'
+  post   'like/:micropost_id', to: 'likes#like', as: 'like'
+  delete 'unlike/:micropost_id', to: 'likes#unlike', as: 'unlike'
   delete 'logout', to: 'sessions#destroy'
+  
 
   resources :users do
     member do
@@ -14,5 +17,4 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts
   resources :relationships, only: [:create, :destroy]
-  resources :likes, only: [:create, :destroy]
 end

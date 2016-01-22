@@ -10,8 +10,7 @@
                                       data: { confirm: "You sure?" } %>
     <% end %>
   </span>
-  <span>
-    <%= render 'microposts/like_form',micropost: micropost %>
-  </sopan>
-
+  <div id="like-link-<%= micropost.id %>">
+    <%= render 'likes/like_links', micropost: micropost %>
+  </div>
 </li>

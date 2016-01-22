@@ -5,9 +5,6 @@ class Micropost < ActiveRecord::Base
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   
-    has_many :liked_likes, class_name:  "Like",
-                                     foreign_key: "liked_id",
-                                     dependent:   :destroy
-    has_many :liked_users, through: :liked_likes, source: :liker
-  
+  has_many :likes
+
 end
