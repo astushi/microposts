@@ -42,13 +42,12 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])     
       @followers = @user.follower_users
   end
-  
+
   private 
   
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :area)
   end
-  
   
   def validates_user
     if current_user == User.find(params[:id])
