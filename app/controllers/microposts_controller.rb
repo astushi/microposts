@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
     else
       flash[:alert] = "マイクロポストの作成に失敗しました！"
       @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
-      @micropost = current_user.microposts.build if logged_in?
+      #@micropost = current_user.microposts.build if logged_in?
       @user = current_user
       render 'static_pages/home'
     end
